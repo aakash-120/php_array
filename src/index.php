@@ -107,6 +107,40 @@ echo "<table><tr><th>category</th><th>subcategory</th><th>ID</th><th>Name</th><t
     }
        
      echo "</table>";
+
+
+echo "<br><br><br>";
+
+
+echo "<table><tr><th>category</th><th>subcategory</th><th>ID</th><th>Name</th><th>BRAND</th></tr>";
+
+        foreach($products as $k1 => $v1)
+        {
+         foreach($v1 as $k2 => $v2)
+         {
+           if($k2 == "Mobile") 
+            { 
+              foreach($v2 as $k3 => $v3)
+              {      
+                echo "<tr><td>$k1</td>";                       
+                echo "<td>$k2</td>";           
+                foreach($v3 as $k4 => $v4)
+                {
+                  echo "<td>$v4</td>";                     
+                }               
+                echo "</tr>";
+              }
+          }
+     }
+    }
+       
+     echo "</table>";
+
+
+echo "<br><br><br>";
+
+
+
        
 ?>
 
