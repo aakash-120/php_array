@@ -82,7 +82,7 @@ $products = array(
         );
 
 
-echo "<table>";
+echo "<table><tr><th>category</th><th>subcategory</th><th>ID</th><th>Name</th><th>BRAND</th></tr>";
 
         foreach($products as $k1 => $v1)
         {
@@ -90,6 +90,7 @@ echo "<table>";
          foreach($v1 as $k2 => $v2)
          {
            // echo $k2."<tr>";       //electronic television
+        
             foreach($v2 as $k3 => $v3)
             {      
               echo "<tr><td>$k1</td>";        
