@@ -81,37 +81,28 @@ $products = array(
     )
         );
 
-//1 List all products in this format:
+echo "1 List all products in this format:<br>";
 echo "<table><tr><th>category</th><th>subcategory</th><th>ID</th><th>Name</th><th>BRAND</th></tr>";
-
-        foreach($products as $k1 => $v1)
+foreach($products as $k1 => $v1)
+{
+foreach($v1 as $k2 => $v2)
+  {
+    foreach($v2 as $k3 => $v3)
+    {      
+      echo "<tr><td>$k1</td>";                
+      echo "<td>$k2</td>"; 
+        foreach($v3 as $k4 => $v4)
         {
-           // echo $k1.": ";        //main array
-         foreach($v1 as $k2 => $v2)
-         {
-           // echo $k2."<tr>";       //electronic television
-        
-            foreach($v2 as $k3 => $v3)
-            {      
-              echo "<tr><td>$k1</td>";        
-                                  //id name brand         
-              echo "<td>$k2</td>";
-           
-               foreach($v3 as $k4 => $v4)
-               {
-                 echo "<td>$v4</td>";                     
-               }               
-               echo "</tr>";
-         }
-     }
-    }
-       
+          echo "<td>$v4</td>";                     
+        }               
+        echo "</tr>";
+  }
+}
+}
      echo "</table>";
-
-
 echo "<br><br><br>";
 
-//2. List all products in Mobile subcategory in same format as in point 1.
+echo "2. List all products in Mobile subcategory in same format as in point 1.<br>";
 echo "<table><tr><th>category</th><th>subcategory</th><th>ID</th><th>Name</th><th>BRAND</th></tr>";
 
         foreach($products as $k1 => $v1)
@@ -140,12 +131,7 @@ echo "<table><tr><th>category</th><th>subcategory</th><th>ID</th><th>Name</th><t
 echo "<br><br><br>";
 
 
-// 3. List all products with their id, name, subcategory and category with brand name = "Samsung" like this:
-
-// Product ID: PR001
-// Product Name: MAX-001
-// Subcategory: Television
-// Category: Electronics
+echo "3. List all products with their id, name, subcategory and category with brand name = Samsung like this:<br>";
 
 foreach($products as $cat => $category)
 {
@@ -164,6 +150,39 @@ foreach($products as $cat => $category)
     }
   }
 }
+
+function delete(){
+  global $products;
+  foreach($products as $key1 => $cat)
+{
+  foreach($cat as $subkey2 => $sub)
+  {
+      foreach($sub as $subkey3 => $item){
+          if($item["id"]=="PR003"){
+             unset($products[$key1][$subkey2][$subkey3]);
+          }
+      }
+  }
+}
+
+echo "4. Delete product with id = PR003.<br>";
+echo "<table>";
+  echo "<tr><th>Category</th><th>Sub Category</th><th>ID</th><th>Name</th><th>Brand</th></tr>";
+  foreach($products as $key => $categories)
+  {
+      foreach($categories as $key2 => $sub)
+      {
+          foreach($sub as $key3 => $item)
+          {
+            echo "<tr><td>$key</td><<td>$key2</td><td>$item[id]</td><td>$item[name]</td><td>$item[brand]</td>";
+          }
+      }
+  }
+  echo "</table>";
+}
+
+delete();
+
 
        
 ?>
