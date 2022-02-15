@@ -184,6 +184,49 @@ echo "<table>";
 delete();
 
 
+function display(){
+  global $products;
+
+echo"<table><tr><th>Category</th><th>Subcategory</th><th>ID</th><th>Name</th><th>Brand</th><tr>";
+  foreach($products as $k1=>$v1){
+      foreach($v1 as $k2=>$v2){         
+          foreach($v2 as $i ){
+
+              echo"<tr><td>".$k1."</td>".
+             " <td>".$k2."</td>".
+              "<td>".$i["id"]."</td>".
+              "<td>".$i["name"]."</td>".
+              "<td>".$i["brand"]."</td></tr>";
+             }
+            }
+  }
+ 
+}  
+  echo"</table>";
+echo "<br><br>";
+
+echo "5. Update product name = BIG-555 with id = PR002.<br>";
+function update()
+{
+  $a = "PR002";
+  global $products;
+  foreach($products as $k1=>$value1)
+  {
+      foreach($value1 as $subCat=>$val)
+      {
+          foreach($val as $v1=>$ab)
+          {
+              if($ab["id"]==$a){
+                $products[$k1][$subCat][$v1]["name"]="BIG-555";        
+              }             
+          }       
+      }
+  }
+display();
+}
+
+
+update();
        
 ?>
 
