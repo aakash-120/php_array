@@ -81,7 +81,7 @@ $products = array(
     )
         );
 
-
+//1 List all products in this format:
 echo "<table><tr><th>category</th><th>subcategory</th><th>ID</th><th>Name</th><th>BRAND</th></tr>";
 
         foreach($products as $k1 => $v1)
@@ -111,7 +111,7 @@ echo "<table><tr><th>category</th><th>subcategory</th><th>ID</th><th>Name</th><t
 
 echo "<br><br><br>";
 
-
+//2. List all products in Mobile subcategory in same format as in point 1.
 echo "<table><tr><th>category</th><th>subcategory</th><th>ID</th><th>Name</th><th>BRAND</th></tr>";
 
         foreach($products as $k1 => $v1)
@@ -140,6 +140,30 @@ echo "<table><tr><th>category</th><th>subcategory</th><th>ID</th><th>Name</th><t
 echo "<br><br><br>";
 
 
+// 3. List all products with their id, name, subcategory and category with brand name = "Samsung" like this:
+
+// Product ID: PR001
+// Product Name: MAX-001
+// Subcategory: Television
+// Category: Electronics
+
+foreach($products as $cat => $category)
+{
+  foreach($category as $subcat => $subcategory)
+  {
+    foreach($subcategory as $val => $value)
+    {
+      if($value['brand'] == 'Samsung')
+      {
+        echo('Product ID:'.$value['id']."<br>");
+        echo('Product NAME:'.$value['name']."<br>");
+        echo('subcategory:'.$subcat."<br>");
+        echo('category:'.$cat."<br>");
+        echo("<br>");
+      }
+    }
+  }
+}
 
        
 ?>
